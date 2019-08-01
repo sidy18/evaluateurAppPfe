@@ -1,5 +1,6 @@
 package sn.ept.evaluateurapp.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -87,6 +88,11 @@ public class MemoirePage extends AppCompatActivity implements MemoireAdapter.Mem
 
     @Override
     public void onMemoireSelected(Memoire memoire) {
-        
+        Intent i = new Intent(getApplicationContext(), MemoireDetailPage.class);
+        i.putExtra("SUJET", memoire.getSujet());
+        i.putExtra("LANGUE", memoire.getLangue());
+        i.putExtra("MAIL_AUTEUR", memoire.getEtudiantId().getEmail());
+        i.putExtra("NOM_AUTEUR", memoire.getEtudiantId().getEmail());
+        startActivity(i);
     }
 }

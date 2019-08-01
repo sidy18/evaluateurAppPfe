@@ -5,4 +5,8 @@
     <color name="colorAccent">#BB86FC</color>
 
     <color name="signupColor">#BB86FC</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="client_name">#333333</color>
+    <color name="client_number">#8c8c8c</color>
 </resources>
