@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="sn.chaka.evaluateurapp">
+    package="sn.ept.evaluateurapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".pages.MemoireDetailPage"
+            android:label="@string/title_activity_memoire_detail_page"
+            android:parentActivityName=".pages.MemoirePage"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sn.ept.evaluateurapp.pages.MemoirePage" />
+        </activity>
+        <activity
+            android:name=".pages.MemoirePage"
+            android:label="@string/title_activity_memoire_page"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

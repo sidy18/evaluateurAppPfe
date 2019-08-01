@@ -1,26 +1,31 @@
-package sn.chaka.evaluateurapp.models;
+package sn.ept.evaluateurapp.models;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class User {
-    int code;
+    @SerializedName("code")
+    @Expose
+    String code;
+    @SerializedName("username")
+    @Expose
     String username;
+    @SerializedName("password")
+    @Expose
     String password;
 
-    public User() {
-    }
 
-
-    public User(int code, String username, String password) {
-        this.code = code;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
