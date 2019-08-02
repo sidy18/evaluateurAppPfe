@@ -51,11 +51,11 @@ public class MemoirePage extends AppCompatActivity implements MemoireAdapter.Mem
         cardList.setItemAnimator(new DefaultItemAnimator());
         cardList.setAdapter(mAdapter);
 
-        fetchMemoires(getIntent().getIntExtra("FILTER", 0));
+        fetchMemoires();
 
     }
 
-    public void fetchMemoires(int idCategorie)
+    public void fetchMemoires()
     {
         final MemoireService memoire = MemoireService.retrofit.create(MemoireService.class);
         final Call<List<Memoire>> call = memoire.getMemoires();
