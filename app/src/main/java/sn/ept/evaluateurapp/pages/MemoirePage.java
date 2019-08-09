@@ -38,7 +38,6 @@ public class MemoirePage extends AppCompatActivity implements MemoireAdapter.Mem
 
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Liste des sujets de PFE");
 
         cardList = findViewById(R.id.cardList);
@@ -89,10 +88,11 @@ public class MemoirePage extends AppCompatActivity implements MemoireAdapter.Mem
     @Override
     public void onMemoireSelected(Memoire memoire) {
         Intent i = new Intent(getApplicationContext(), MemoireDetailPage.class);
+        i.putExtra("ID_MEMOIRE", memoire.getId());
         i.putExtra("SUJET", memoire.getSujet());
         i.putExtra("LANGUE", memoire.getLangue());
         i.putExtra("MAIL_AUTEUR", memoire.getEtudiantId().getEmail());
-        i.putExtra("NOM_AUTEUR", memoire.getEtudiantId().getEmail());
+        i.putExtra("NOM_AUTEUR", memoire.getEtudiantId().getPrenom()+" "+memoire.getEtudiantId().getNom());
         startActivity(i);
     }
 }

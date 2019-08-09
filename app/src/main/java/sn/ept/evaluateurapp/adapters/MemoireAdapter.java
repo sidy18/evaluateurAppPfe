@@ -57,7 +57,7 @@ public class MemoireAdapter  extends RecyclerView.Adapter<MemoireAdapter.MyViewH
     public void onBindViewHolder(@NonNull MemoireAdapter.MyViewHolder myViewHolder, int i) {
         final Memoire memoire = memoireList.get(i);
         myViewHolder.title.setText(memoire.getSujet());
-        myViewHolder.author.setText(memoire.getEtudiantId().getEmail());
+        myViewHolder.author.setText(memoire.getEtudiantId().getPrenom()+" "+memoire.getEtudiantId().getNom());
     }
 
     @Override

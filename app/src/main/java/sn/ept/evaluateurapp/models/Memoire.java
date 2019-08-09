@@ -24,8 +24,12 @@ public class Memoire {
     public Memoire() {
     }
 
-    public Memoire(Integer id) {
+    public Memoire(Integer id, Integer idEtudiant) {
         this.id = id;
+        this.sujet = "";
+        this.langue = "";
+        this.lieu = "";
+        this.etudiantId = new Etudiant(idEtudiant);
     }
 
     public Memoire(Integer id, String sujet, String langue, String lieu, Etudiant etudiantId) {

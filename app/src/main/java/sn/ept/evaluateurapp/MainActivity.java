@@ -2,6 +2,7 @@ package sn.ept.evaluateurapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import sn.ept.evaluateurapp.models.Memoire;
 import sn.ept.evaluateurapp.models.User;
 import sn.ept.evaluateurapp.pages.MemoirePage;
 import sn.ept.evaluateurapp.webservices.ConnectionService;
@@ -61,16 +63,20 @@ public class MainActivity extends AppCompatActivity  implements Validator.Valida
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if(response.isSuccessful()) {
-                    volleyOutput.setText("Voila voila : "+response.code());
+                if(response.body().getCode().equals("404")) {
+                    volleyOutput.setText("Nom d'utilisateur ou mot de passe incorrects");
                 }
-                volleyOutput.setText(response.body().toString());
 
-                startActivity(new Intent(
-                        MainActivity.this,
-                        MemoirePage.class
-                ));
-                finish();
+                else {
+                    preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    pEditor = preferences.edit();
+                    pEditor.putString("EVAL_ID", response.body().getCode());
+                    pEditor.commit();
+
+                    Intent i = new Intent(getApplicationContext(), MemoirePage.class);
+                    startActivity(i);
+                    finish();
+                }
             }
 
             @Override

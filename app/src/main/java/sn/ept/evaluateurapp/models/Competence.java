@@ -19,6 +19,8 @@ public class Competence {
 
     public Competence(Integer id) {
         this.id = id;
+        this.nom = "";
+        this.coefficient = 0;
     }
 
     public Competence(Integer id, String nom, int coefficient) {

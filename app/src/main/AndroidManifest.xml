@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pages.FicheNotePage"></activity>
+        <activity
+            android:name=".pages.NotePage"
+            android:label="@string/title_activity_note_page"
+            android:parentActivityName=".pages.FicheNotePage"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sn.ept.evaluateurapp.pages.FicheNotePage" />
+        </activity>
+        <activity android:name=".pages.FicheNotePage" />
         <activity
             android:name=".pages.MemoireDetailPage"
             android:label="@string/title_activity_memoire_detail_page"

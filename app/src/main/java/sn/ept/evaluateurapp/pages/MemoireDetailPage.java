@@ -19,7 +19,7 @@ public class MemoireDetailPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setTitle(getIntent().getStringExtra("MAIL_AUTEUR"));
+        setTitle(getIntent().getStringExtra("NOM_AUTEUR"));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +29,8 @@ public class MemoireDetailPage extends AppCompatActivity {
                         .setAction("Action", null).show();
 
                 Intent i = new Intent(getApplicationContext(), FicheNotePage.class);
+                i.putExtra("ID_MEMOIRE", getIntent().getIntExtra("ID_MEMOIRE", 0));
+
                 startActivity(i);
             }
         });

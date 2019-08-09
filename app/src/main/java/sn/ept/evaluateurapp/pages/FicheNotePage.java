@@ -24,6 +24,7 @@ public class FicheNotePage extends AppCompatActivity implements CompetenceAdapte
     private RecyclerView cardList2;
     private List<Competence> competenceList;
     private CompetenceAdapter mAdapter;
+    private Integer idMemoire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class FicheNotePage extends AppCompatActivity implements CompetenceAdapte
         competenceList = new ArrayList<>();
 
         mAdapter = new CompetenceAdapter(this, competenceList, this);
+        idMemoire = getIntent().getIntExtra("ID_MEMOIRE", 0);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         cardList2.setLayoutManager(mLayoutManager);
@@ -77,8 +79,9 @@ public class FicheNotePage extends AppCompatActivity implements CompetenceAdapte
 
     @Override
     public void onCompetenceSelected(Competence competence) {
-        Intent i = new Intent(getApplicationContext(), MemoireDetailPage.class);
+        Intent i = new Intent(getApplicationContext(), NotePage.class);
         i.putExtra("ID_COMPETENCE", competence.getId());
+        i.putExtra("ID_MEMOIRE", idMemoire);
         startActivity(i);
     }
 }
