@@ -12,23 +12,66 @@
         android:layout_height="52dp"
         android:text="submit"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.842" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <io.feeeei.circleseekbar.CircleSeekBar
+        android:id="@+id/outerSeekbar"
+        android:layout_width="286dp"
+        android:layout_height="292dp"
         android:layout_marginStart="46dp"
+
+
         android:layout_marginLeft="46dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="46dp"
         android:layout_marginRight="46dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:wheel_max_process="20"
+        app:wheel_reached_color="@color/colorPrimary" />
+
+    <io.feeeei.circleseekbar.CircleSeekBar
+        android:id="@+id/innerSeekbar"
+        android:layout_width="247dp"
+        android:layout_height="219dp"
+        android:layout_marginStart="46dp"
+
+
+        android:layout_marginLeft="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
+        app:layout_constraintBottom_toBottomOf="@+id/outerSeekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/outerSeekbar"
+        app:wheel_max_process="3"
+        app:wheel_reached_color="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/currentMark"
+        android:layout_width="111dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/outerSeekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/outerSeekbar" />
 
 </android.support.constraint.ConstraintLayout>

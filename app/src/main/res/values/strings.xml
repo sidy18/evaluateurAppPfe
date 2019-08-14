@@ -93,4 +93,5 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_note_page">NotePage</string>
+    <string name="title_activity_deliberation_page">DeliberationPage</string>
 </resources>

@@ -21,19 +21,29 @@ public class MemoireDetailPage extends AppCompatActivity {
 
         setTitle(getIntent().getStringExtra("NOM_AUTEUR"));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent i1 = new Intent(getApplicationContext(), FicheNotePage.class);
+                i1.putExtra("ID_MEMOIRE", getIntent().getIntExtra("ID_MEMOIRE", 0));
 
-                Intent i = new Intent(getApplicationContext(), FicheNotePage.class);
-                i.putExtra("ID_MEMOIRE", getIntent().getIntExtra("ID_MEMOIRE", 0));
-
-                startActivity(i);
+                startActivity(i1);
             }
         });
+
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i2 = new Intent(getApplicationContext(), DeliberationPage.class);
+                i2.putExtra("ID_MEMOIRE", getIntent().getIntExtra("ID_MEMOIRE", 0));
+
+                startActivity(i2);
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

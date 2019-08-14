@@ -44,4 +44,7 @@ dependencies {
     implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
     //Circular image lib
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
+
+    //Circle Seeking Bar
+    implementation 'com.github.feeeei:CircleSeekbar:v1.1.2'
 }

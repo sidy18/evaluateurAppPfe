@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".pages.DeliberationPage"
+            android:label="@string/title_activity_deliberation_page"
+            android:parentActivityName=".pages.MemoireDetailPage"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sn.ept.evaluateurapp.pages.MemoireDetailPage" />
+        </activity>
+        <activity
             android:name=".pages.NotePage"
             android:label="@string/title_activity_note_page"
             android:parentActivityName=".pages.FicheNotePage"

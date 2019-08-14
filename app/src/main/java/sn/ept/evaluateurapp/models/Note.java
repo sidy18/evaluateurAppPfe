@@ -9,7 +9,7 @@ public class Note {
     private Integer id;
     @SerializedName("note")
     @Expose
-    private Integer note;
+    private float note;
     @SerializedName("competenceId")
     @Expose
     private Competence competenceId;
@@ -21,7 +21,7 @@ public class Note {
     private Memoire memoireId;
 
 
-    public Note(Integer id, Integer note, Competence competenceId, Evaluateur evaluateurId, Memoire memoireId) {
+    public Note(Integer id, float note, Competence competenceId, Evaluateur evaluateurId, Memoire memoireId) {
         this.id = id;
         this.note = note;
         this.competenceId = competenceId;
@@ -29,7 +29,7 @@ public class Note {
         this.memoireId = memoireId;
     }
 
-    public Note(Integer note, Competence competenceId, Evaluateur evaluateurId, Memoire memoireId) {
+    public Note(float note, Competence competenceId, Evaluateur evaluateurId, Memoire memoireId) {
         this.note = note;
         this.competenceId = competenceId;
         this.evaluateurId = evaluateurId;
@@ -44,11 +44,11 @@ public class Note {
         this.id = id;
     }
 
-    public Integer getNote() {
+    public float getNote() {
         return note;
     }
 
-    public void setNote(Integer note) {
+    public void setNote(float note) {
         this.note = note;
     }
 
