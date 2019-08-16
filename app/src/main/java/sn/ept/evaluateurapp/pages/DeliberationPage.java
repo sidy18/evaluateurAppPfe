@@ -1,5 +1,6 @@
 package sn.ept.evaluateurapp.pages;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,8 +24,6 @@ import sn.ept.evaluateurapp.models.Note;
 import sn.ept.evaluateurapp.webservices.NoteService;
 
 public class DeliberationPage extends AppCompatActivity {
-    private Integer noteActuelle=12;
-    private List<Note> noteList;
     private Memoire memoireActuel;
     private Evaluateur evaluateurActuel;
     private SharedPreferences preferences;
@@ -47,7 +45,6 @@ public class DeliberationPage extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         evaluateurActuel = new Evaluateur(Integer.parseInt(preferences.getString("EVAL_ID", "0")));
-        noteList = new ArrayList<>();
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -91,6 +88,12 @@ public class DeliberationPage extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), " Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void loadNotes(View v) {
+        Intent i1 = new Intent(getApplicationContext(), ListNotePage.class);
+        i1.putExtra("ID_MEMOIRE", getIntent().getIntExtra("ID_MEMOIRE", 0));
+        startActivity(i1);
     }
 
 }

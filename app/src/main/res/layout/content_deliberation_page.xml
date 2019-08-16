@@ -163,6 +163,7 @@
             android:layout_marginRight="13dp"
             android:layout_marginBottom="13dp"
             app:cardElevation="4dp"
+            android:onClick="loadNotes"
 
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true">
