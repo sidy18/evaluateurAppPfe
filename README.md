@@ -8,3 +8,5 @@ Cela s'est fait grâce au plugin retrofit pour android.
 Pour le faire fonctionner :
 - Déployer l'API grâce au serveur Glassfish
 - Ensuite au niveau de android studio, modifier le fichier network/RetrofitInstance en mettant l'url (adresse ip + endpoint) de base du serveur de l'api (BASE_URL) correspondant dans le réseau local
+
+Sidy Koné DIC3-GIT
