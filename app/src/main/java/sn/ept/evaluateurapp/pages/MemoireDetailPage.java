@@ -7,8 +7,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import sn.ept.evaluateurapp.R;
+import sn.ept.evaluateurapp.models.Resume;
+import sn.ept.evaluateurapp.webservices.ResumeService;
 
 public class MemoireDetailPage extends AppCompatActivity {
 
@@ -45,5 +54,31 @@ public class MemoireDetailPage extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        fetchResume();
+    }
+
+    public void fetchResume()
+    {
+        final ResumeService memoire = ResumeService.retrofit.create(ResumeService.class);
+        final Call<List<Resume>> call = memoire.getResumes();
+
+        call.enqueue(new Callback<List<Resume>>() {
+            @Override
+            public void onResponse(Call<List<Resume>> call, Response<List<Resume>> response) {
+                Toast.makeText(getApplicationContext(), "Resume retrieved", Toast.LENGTH_SHORT).show();
+                TextView resume = findViewById(R.id.resume);
+                for (int i = 0; i < response.body().size(); i++) {
+                    if(getIntent().getIntExtra("ID_MEMOIRE", 0) == response.body().get(i).getMemoireId().getId()) {
+                        resume.setText(response.body().get(i).getResume());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Resume>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Resumes retrieved", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
